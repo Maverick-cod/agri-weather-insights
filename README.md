@@ -1,121 +1,152 @@
+# 🌾 Telangana Agri-Weather RTGS System
 
----
+[![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-1.3+-blue.svg)](https://pandas.pydata.org/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-0.24+-orange.svg)](https://scikit-learn.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# 🌾 + 🌦️ + 📊 Agri-Weather Insights
+**AI-Powered Real-Time Gross Settlement System for Agricultural Risk Assessment in Telangana**
 
-**Prototype RTGS-Style AI Analyst for Telangana Open Data — Agriculture + Weather Sector**
+## 📊 Overview
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python" />
-  <img src="https://img.shields.io/badge/Framework-Jupyter-orange?style=for-the-badge&logo=jupyter" />
-  <img src="https://img.shields.io/badge/Data-Pandas-green?style=for-the-badge&logo=pandas" />
-  <img src="https://img.shields.io/badge/Visualization-Matplotlib%20|%20Seaborn-red?style=for-the-badge&logo=plotly" />
-  <img src="https://img.shields.io/badge/Backend-RTGS%20Pipeline-purple?style=for-the-badge&logo=fastapi" />
-  <img src="https://img.shields.io/badge/Output-Policy%20Ready-blue?style=for-the-badge&logo=gov" />
-</p>  
+A comprehensive data processing and analysis system for agricultural weather risk assessment in Telangana, India. This system processes meteorological data to generate actionable insights and predictive models for agricultural risk assessment.
 
-📂 **Dataset & Resources**
-[👉 Access Google Drive Folder](https://drive.google.com/drive/folders/1XQ3lvMYUm0kvVloAyEhnxs9hYEToP18H?usp=drive_link)
+![System Architecture](https://via.placeholder.com/800x400.png?text=RTGS+System+Architecture)
 
----
+## 🚀 Key Features
 
-## 🔑 Key Features
+### 🔄 Data Processing Pipeline
+- **Large-scale Data Ingestion**: Handles 2.3M+ records with chunked processing
+- **Automated Standardization**: Column normalization and type conversion
+- **Temporal Feature Engineering**: Seasonality detection and rolling averages
+- **Advanced Quality Control**: Dual outlier detection (Z-score + IQR methods)
 
-### 1. 🌐 Comprehensive Data Ingestion
+### 📈 Risk Assessment Engine
+- **Agricultural Risk Index (ARI)**: Multi-factor risk scoring system
+- **Weather Stress Indicators**: Rainfall, temperature, humidity, and wind analysis
+- **District-level Vulnerability Mapping**: Geospatial risk visualization
 
-* **Implementation:** `load_and_standardize_data(file_path: str)` (Cell 4)
-* **Scale:** 2.3M records processed with `pd.read_csv(..., chunksize=100000)`
-* **Integrity:** Zero missing values, with detailed logging
+### 📊 Advanced Analytics
+- **Predictive Modeling**: Rainfall forecasting and risk classification
+- **Statistical Validation**: ANOVA testing and correlation analysis
+- **Hypothesis Testing**: Seasonal and temperature-rainfall relationships
 
----
+### 🎯 Policy-Ready Outputs
+- **Priority-based Recommendations**: Data-driven policy suggestions
+- **Multi-format Exports**: CSV, Parquet, Excel, JSON, PDF reports
+- **Interactive Dashboards**: Real-time filtering and visualization
 
-### 2. ⏳ Temporal Feature Engineering
+## 🛠️ Installation
 
-* Extracted **year, month, day, quarter, season**
-* Rolling averages: `7-day` & `30-day rainfall trends`
+```bash
+# Clone repository
+git clone https://github.com/your-username/telangana-agri-rtgs.git
+cd telangana-agri-rtgs
 
----
+# Install dependencies
+pip install -r requirements.txt
+```
 
-### 3. 🛡️ Advanced Quality Control
+### 📋 Requirements
 
-* Outlier detection: **Z-score + IQR**
-* Flags: `temp_consistency_flag`, `humidity_consistency_flag`, `{col}_outlier_flag`
+The system requires the following Python packages:
 
----
+- **Data Processing**: pandas, numpy
+- **Visualization**: matplotlib, seaborn, plotly
+- **Machine Learning**: scikit-learn
+- **Utilities**: scipy, joblib, json, datetime
 
-### 4. 🌱 Agricultural Risk Modeling
+## 📁 Project Structure
 
-* **Weather Stress Index (WSI)**
-* **Agricultural Risk Index (ARI)** → 0–100 scale
-* Tiered risks: `Low / Medium / High`
+```
+RTGS_System/
+├── RTGS_System.ipynb          # Main Jupyter notebook
+├── rtgs_outputs/              # Generated outputs
+│   ├── standardized/          # Standardized data
+│   ├── cleaned/               # Cleaned datasets
+│   ├── insights/              # Analysis results
+│   ├── visualizations/        # Charts and graphs
+│   ├── models/                # Trained ML models
+│   └── reports/               # Comprehensive reports
+└── README.md
+```
 
----
+## 🏃‍♂️ Usage
 
-### 5. 🏙️ District Vulnerability Assessment
+### 1. Configuration Setup
+Modify the `Config` class to set:
+- Data paths and output directories
+- Risk thresholds and analysis parameters
+- Visualization settings
 
-* Generates **district-level insights**:
+### 2. Run Full Pipeline
+```python
+# Execute complete analysis pipeline
+df_clean, insights, cli = run_rtgs_pipeline()
+```
 
-  * Avg. rainfall
-  * Avg. ARI
-  * High-risk days count
+### 3. Interactive Analysis
+```python
+# Use CLI interface for exploration
+cli.show_summary()
+cli.show_high_risk_districts(top_n=5)
+cli.show_policy_recommendations(top_n=5)
+```
 
----
+### 4. Export Results
+```python
+# Export to multiple formats
+cli.export_results('csv')
+cli.export_results('excel')
+```
 
-### 6. 📐 Statistical Validation Framework
+## 📊 Data Requirements
 
-* **ANOVA** → rainfall variation
-* **Correlation** → rainfall vs. temperature
+The system expects CSV data with the following columns:
+- `district`, `mandal`, `date`
+- `rainfall_mm`, `temp_min`, `temp_max`
+- `humidity_min`, `humidity_max`
+- `wind_min`, `wind_max`
+- `source_file`
 
----
+## 📈 Sample Outputs
 
-### 7. 📢 Policy-Ready Output Generation
+### Risk Distribution by District
+![Risk Distribution](https://via.placeholder.com/600x400.png?text=Risk+Distribution+Chart)
 
-* Recommendations on: rainfall deficit, high-risk frequency, heatwaves, dry spells
-* Tagged priority: **High / Medium**
+### Seasonal Rainfall Patterns
+![Seasonal Analysis](https://via.placeholder.com/600x400.png?text=Seasonal+Rainfall+Analysis)
 
----
+## 🏛️ Policy Applications
 
-### 8. 📂 Multi-Format Output System
+The system generates actionable recommendations for:
+- Water conservation measures in drought-prone districts
+- Emergency response planning for high-risk areas
+- Heat stress management strategies
+- Irrigation infrastructure development
 
-* **Exports:** CSV, Excel, JSON, Parquet
-* **Visualizations:** PNG + Interactive HTML
+## 🤝 Contributing
 
----
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-### 9. 💻 Interactive Access Infrastructure
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-* **RTGSCLI Class** → explore results:
+## 📜 License
 
-  * `show_summary()`
-  * `show_high_risk_districts()`
-  * `show_policy_recommendations()`
-* Interactive **dashboard with ipywidgets**
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
+## 🙏 Acknowledgments
 
-### 10. 🚨 Actionable Intelligence Delivery
+- Telangana agricultural department for data support
+- Meteorological departments for weather data
+- Open-source community for data science libraries
 
-* **Function:** `run_rtgs_pipeline()` → transforms raw data into:
 
-  * ✅ Clean dataset
-  * ✅ Insights JSON
-  * ✅ Policy-ready reports
-
----
-
-## 📊 Example Outputs
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Output-Insights_JSON-success?style=flat-square&logo=json" />
-  <img src="https://img.shields.io/badge/Output-Visualizations-orange?style=flat-square&logo=chartdotjs" />
-  <img src="https://img.shields.io/badge/Output-Policy_Recs-blueviolet?style=flat-square&logo=gov" />
-  <img src="https://img.shields.io/badge/Export-CSV%20|%20Excel-lightgrey?style=flat-square&logo=microsoft-excel" />
-</p>  
-
----
-
-## 🚀 Vision
-
-This project bridges **open government data** with **AI-powered analytics**, transforming raw weather & agriculture datasets into **decision-ready intelligence** for policy makers, researchers, and farmers.
-
----
+<div align="center">
+  <sub>Built with ❤️ for the farmers of Telangana</sub>
+</div>
