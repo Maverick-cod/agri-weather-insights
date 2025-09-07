@@ -1,10 +1,9 @@
+
 ---
 
 # 🌾 + 🌦️ + 📊 Agri-Weather Insights
 
 **Prototype RTGS-Style AI Analyst for Telangana Open Data — Agriculture + Weather Sector**
-
-
 
 📂 **Dataset & Resources**
 [👉 Access Google Drive Folder](https://drive.google.com/drive/folders/1XQ3lvMYUm0kvVloAyEhnxs9hYEToP18H?usp=drive_link)
@@ -94,8 +93,6 @@
   * ✅ Policy-ready reports
 
 ---
-
-<div align="center"> <sub>Built with ❤️ for the farmers of Telangana</sub> </div>
 
 
 👉 Maverick, do you want me to also **design a custom SVG banner/logo** with 🌾🌦️📊 + project name (so it looks like a GitHub project brand), instead of just emojis and badges?
