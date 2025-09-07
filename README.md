@@ -1,95 +1,123 @@
-# 🌾 Agri-Weather Insights  
-**Prototype RTGS-Style AI Analyst for Telangana Open Data — Agriculture + Weather Sector**
+# 🌾 🌦️ 📊 Agri-Weather Insights  
+**Prototype RTGS-Style AI Analyst for Telangana Open Data — Agriculture + Weather Sector**  
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/Jupyter-Notebook-orange.svg?style=for-the-badge&logo=jupyter" />
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg?style=for-the-badge" />
+</p>  
+
+---
 
 📂 **Dataset & Resources**  
-[👉 Access Google Drive Folder](https://drive.google.com/drive/folders/1XQ3lvMYUm0kvVloAyEhnxs9hYEToP18H?usp=drive_link)
+[![Google Drive](https://img.shields.io/badge/📂%20Access%20Dataset-Google%20Drive-blue?style=flat&logo=google-drive)](https://drive.google.com/drive/folders/1XQ3lvMYUm0kvVloAyEhnxs9hYEToP18H?usp=drive_link)  
 
 ---
 
-## 🔑 Key Features
-
-### 1. Comprehensive Data Ingestion
-- **Implementation:** `load_and_standardize_data(file_path: str)` (Cell 4)  
-- **Scale:** 2.3M records processed with `pd.read_csv(..., chunksize=100000)`  
-- **Parameters:** 11 standardized columns  
-- **Integrity:** Zero missing values, with detailed logging and `conversion_issues` tracking  
-
----
-
-### 2. Temporal Feature Engineering
-- Extracted **year, month, day, day_of_year, week_of_year, quarter** from `date`  
-- **Seasonal categorization:** `get_season(month: int)` → Winter, Summer, Monsoon, Post-Monsoon  
-- **Rolling averages:**  
-  - 7-day rainfall: `rolling_avg_rainfall_7d`  
-  - 30-day rainfall: `rolling_avg_rainfall_30d`  
+## 📑 Table of Contents
+- [🔑 Key Features](#-key-features)  
+- [🚀 Vision](#-vision)  
+- [🛠️ Tech Stack](#️-tech-stack)  
+- [📊 Example Outputs](#-example-outputs)  
+- [⚡ Quick Start](#-quick-start)  
+- [🤝 Contributing](#-contributing)  
+- [📜 License](#-license)  
 
 ---
 
-### 3. Advanced Quality Control
-- Dual outlier detection: **Z-score** + **IQR** methods  
-- Data quality flags: `temp_consistency_flag`, `humidity_consistency_flag`, `{col}_outlier_flag`  
+## 🔑 Key Features  
+
+### 1️⃣ Comprehensive Data Ingestion  
+- `load_and_standardize_data(file_path: str)` (Cell 4)  
+- 2.3M records processed in **chunks of 100k**  
+- 11 standardized columns, **zero missing values**  
+- Full logging with conversion issue tracking  
 
 ---
 
-### 4. Agricultural Risk Modeling
-- **Weather Stress Index (WSI):** Derived risk components (rainfall, temperature, etc.)  
-- **Agricultural Risk Index (ARI):** Weighted sum, normalized to 0–100 scale  
-- **Risk tiers:** 5-category system (`Low`, `Medium`, `High`) using `Config.RISK_THRESHOLDS`  
+### 2️⃣ Temporal Feature Engineering  
+- Extracted **year, month, day, week, quarter**  
+- Seasonal tagging: `Winter, Summer, Monsoon, Post-Monsoon`  
+- Rolling averages:  
+  - 7-day rainfall → `rolling_avg_rainfall_7d`  
+  - 30-day rainfall → `rolling_avg_rainfall_30d`  
 
 ---
 
-### 5. District Vulnerability Assessment
-- **Functions:** `generate_insights(df: pd.DataFrame)`  
-- Produces district-level statistics for:  
-  - Avg. rainfall  
-  - Avg. ARI  
-  - Count of high-risk days (`high_risk_districts`)  
+### 3️⃣ Advanced Quality Control  
+- **Dual outlier detection** → Z-score + IQR  
+- Flags for temp, humidity, and rainfall anomalies  
 
 ---
 
-### 6. Statistical Validation Framework
-- **ANOVA testing:** Seasonal rainfall variation (`stats.f_oneway`)  
-- **Correlation analysis:** Temperature vs. rainfall (`stats.pearsonr`)  
+### 4️⃣ Agricultural Risk Modeling  
+- Weather Stress Index (**WSI**)  
+- Agricultural Risk Index (**ARI**) → normalized 0–100  
+- Risk tiers: Low / Medium / High (Config thresholds)  
 
 ---
 
-### 7. Policy-Ready Output Generation
-- **Function:** `generate_policy_recommendations(df)`  
-- Recommendations on rainfall deficit, high-risk frequency, heatwaves, dry spells  
-- Priority tagging: **High / Medium**  
+### 5️⃣ District Vulnerability Assessment  
+- `generate_insights(df)` → per-district stats  
+- Avg rainfall, Avg ARI, high-risk days count  
 
 ---
 
-### 8. Multi-Format Output System
-- **Exports:**  
-  - CSV & Parquet → `standardized/`, `cleaned/`  
-  - Insights & reports (JSON) → `insights/`, `logs/`  
-  - CSV & Excel with chunking → `export_results()`  
-  - Visualizations → PNG & interactive HTML in `visualizations/`  
+### 6️⃣ Statistical Validation  
+- Seasonal ANOVA (rainfall variation)  
+- Pearson correlation (Temp ↔ Rainfall)  
 
 ---
 
-### 9. Interactive Access Infrastructure
-- **RTGSCLI Class:**  
-  - Explore results with:  
-    - `show_summary()`  
-    - `show_high_risk_districts()`  
-    - `show_policy_recommendations()`  
-    - `run_hypothesis_test()`  
-  - Interactive dashboard with `ipywidgets`  
+### 7️⃣ Policy-Ready Output  
+- `generate_policy_recommendations(df)`  
+- Insights on rainfall deficit, heatwaves, dry spells  
+- Priority tagging → High / Medium  
 
 ---
 
-### 10. Actionable Intelligence Delivery
-- **Function:** `run_rtgs_pipeline()`  
-- End-to-end pipeline transforms raw input into:  
-  - ✅ Cleaned dataset  
+### 8️⃣ Multi-Format Export  
+- CSV + Parquet (cleaned/standardized)  
+- JSON logs, Excel chunked exports  
+- Visualizations → PNG & interactive HTML  
+
+---
+
+### 9️⃣ Interactive Access Infrastructure  
+- **RTGSCLI Class** → CLI + Widgets  
+- Methods: `show_summary()`, `show_high_risk_districts()`, `run_hypothesis_test()`  
+
+---
+
+### 🔟 Actionable Intelligence Delivery  
+- End-to-end pipeline:  
+  - ✅ Clean dataset  
   - ✅ Validated insights JSON  
   - ✅ Policy recommendations CSV  
 
 ---
 
-## 🚀 Vision
-This project bridges **open government data** with **AI-powered analytics**, transforming raw weather and agriculture datasets into **decision-ready intelligence** for policy makers, researchers, and farmers.  
+## 🚀 Vision  
+This project bridges **open government data** with **AI-powered analytics**, transforming raw weather & agriculture datasets into **decision-ready intelligence** for policymakers, researchers, and farmers.  
+
+---
+
+## 🛠️ Tech Stack  
+- **Python 3.10+**  
+- **Pandas / NumPy** (data processing)  
+- **Matplotlib / Seaborn / Plotly** (visualization)  
+- **Scikit-learn** (ML models)  
+- **SciPy** (statistical testing)  
+- **ipywidgets** (interactive UI)  
+
+---
+
+## 📊 Example Outputs  
+<p align="center">
+  <img src="https://img.shields.io/badge/📈-Visualization-blue?style=for-the-badge" />
+</p>  
+
+*(You can add screenshots here — e.g., rainfall plots, ARI maps, dashboards)*  
 
 ---
