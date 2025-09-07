@@ -1,13 +1,6 @@
 # 🌾 🌦️ 📊 Agri-Weather Insights  
 **Prototype RTGS-Style AI Analyst for Telangana Open Data — Agriculture + Weather Sector**  
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=for-the-badge&logo=python" />
-  <img src="https://img.shields.io/badge/Jupyter-Notebook-orange.svg?style=for-the-badge&logo=jupyter" />
-  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg?style=for-the-badge" />
-</p>  
-
 ---
 
 📂 **Dataset & Resources**  
@@ -113,11 +106,3 @@ This project bridges **open government data** with **AI-powered analytics**, tra
 
 ---
 
-## 📊 Example Outputs  
-<p align="center">
-  <img src="https://img.shields.io/badge/📈-Visualization-blue?style=for-the-badge" />
-</p>  
-
-*(You can add screenshots here — e.g., rainfall plots, ARI maps, dashboards)*  
-
----
