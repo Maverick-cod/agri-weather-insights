@@ -94,5 +94,4 @@
 
 ---
 
-
-👉 Maverick, do you want me to also **design a custom SVG banner/logo** with 🌾🌦️📊 + project name (so it looks like a GitHub project brand), instead of just emojis and badges?
+<div align="center"> <sub>Built with ❤️ for the farmers of Telangana</sub> </div>
